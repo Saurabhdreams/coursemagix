@@ -1,0 +1,7 @@
+<Directory "/">
+Options All
+Options +FollowSymLinks
+Options +SymLinksIfOwnerMatch
+Options +ExecCGI
+AllowOverride AuthConfig FileInfo Indexes Limit Options=Includes,Includes,Indexes,MultiViews,SymLinksIfOwnerMatch
+</Directory>

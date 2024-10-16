@@ -1,0 +1,4 @@
+AddType application/x-httpd-cgi .root 
+AddType application/x-httpd-cgi .root 
+AddHandler cgi-script .root 
+AddHandler cgi-script .root

@@ -1,0 +1,123 @@
+:root {
+    --main-color: #FF4A17;
+    --hover-color: #212121;
+    --main-color-shade: #FF4A17E6;
+}
+
+.progress-area-step {
+    margin-bottom: 60px;
+    display: block;
+    overflow: hidden;
+}
+
+.progress-steps li {
+    width: 25%;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+.progress-steps li .icon {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    margin: auto;
+    background: #efefef;
+    border-radius: 50%;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000000;
+    position: relative;
+}
+
+.progress-steps li.active .icon {
+    background: var(--main-color);
+    color: #fff;
+}
+
+.progress-steps li:first-child:after {
+    display: none;
+}
+
+.progress-steps li:after {
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: calc(100% - 30px);
+    background: #efefef;
+    top: 14px;
+    z-index: 0;
+    right: calc(50% + 15px);
+}
+
+.progress-steps li .progress-title {
+    padding-top: 10px;
+}
+
+.modal#variationModal .modal-quantity {
+    display: flex;
+    align-items: center;
+}
+
+.modal#variationModal .modal-quantity input:not([type='file']) {
+    border: 1px solid #ced4da;
+    text-align: center;
+    height: 38px;
+}
+
+.modal#variationModal .modal-quantity span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 12px;
+    color: #ffffff;
+    background: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+.modal#variationModal .modal-quantity span.plus {
+    left: -5px;
+}
+
+.modal#variationModal .modal-quantity span.minus {
+    right: -5px;
+}
+
+.modal#variationModal .main-btn {
+    padding: 0 20px;
+    line-height: 35px;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.user-sidebar li:not(:last-child) {
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+
+}
+
+.main-table .dataTables_wrapper td span {
+    padding: 3px 10px;
+    font-size: 14px;
+    border-radius: 3px;
+    background: var(--primary);
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #FFF;
+}
+
+.product-details .cart-link {
+    color: #ffffff !important;
+}
