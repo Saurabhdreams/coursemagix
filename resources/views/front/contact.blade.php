@@ -15,6 +15,19 @@
 
 @section('content')
 
+<style>
+    textarea {
+        resize: both;
+        min-width: 100px;
+        min-height: 150px;
+        overflow: auto;
+    }
+
+    .form-group {
+        width: auto;
+    }
+</style>
+
     <!--====== Start contacts-section ======-->
     <div class="contact-area pt-120 pb-90">
         <div class="container">
