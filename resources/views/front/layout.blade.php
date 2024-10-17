@@ -191,18 +191,49 @@
         "use strict";
         var whatsapp_popup = {{$bs->whatsapp_popup}};
         var whatsappImg = "{{asset('assets/front/img/whatsapp.svg')}}";
+
         $(function () {
             $('#WAButton').floatingWhatsApp({
-                phone: "{{$bs->whatsapp_number}}", //WhatsApp Business phone number
-                headerTitle: "{{$bs->whatsapp_header_title}}", //Popup Title
-                popupMessage: `{!! !empty($bs->whatsapp_popup_message) ? nl2br($bs->whatsapp_popup_message) : '' !!}`, //Popup Message
-                showPopup: whatsapp_popup == 1 ? true : false, //Enables popup display
-                buttonImage: '<img src="' + whatsappImg + '" />', //Button Image
-                position: "right" //Position: left | right
-
+                phone: "{{$bs->whatsapp_number}}",
+                headerTitle: "{{$bs->whatsapp_header_title}}",
+                popupMessage: `{!! !empty($bs->whatsapp_popup_message) ? nl2br($bs->whatsapp_popup_message) : '' !!}`, // Popup Message
+                showPopup: whatsapp_popup == 1 ? true : false,
+                buttonImage: '<img src="' + whatsappImg + '" />',
+                position: "right"
             });
+
+            var isHoveredOverWAButton = false;
+            var isHoveredOverChatBox = false;
+
+            $('#WAButton').hover(
+                function () {
+                    isHoveredOverWAButton = true;
+                    $('.floating-wpp-popup').fadeIn();
+                },
+                function () {
+                    isHoveredOverWAButton = false;
+                    setTimeout(checkHideChatBox, 300);
+                }
+            );
+
+            $('.floating-wpp-popup').hover(
+                function () {
+                    isHoveredOverChatBox = true;
+                },
+                function () {
+                    isHoveredOverChatBox = false;
+                    setTimeout(checkHideChatBox, 300);
+                }
+            );
+
+            function checkHideChatBox() {
+                if (!isHoveredOverWAButton && !isHoveredOverChatBox) {
+                    $('.floating-wpp-popup').fadeOut();
+                }
+            }
         });
     </script>
+
 @endif
 
 @if ($bs->is_tawkto == 1)

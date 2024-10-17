@@ -34,7 +34,7 @@
                 <form id="#authForm" action="{{ route('front.checkout.view') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="title">
-                        <h3>{{ __('Signup') }}</h3>
+                        <h3>{{ __('Sign up') }}</h3>
                     </div>
                     <div class="form-group mb-30">
                         <input type="text" class="form-control" name="username" placeholder="{{ __('Username') }}" value="{{ old('username') }}" required >

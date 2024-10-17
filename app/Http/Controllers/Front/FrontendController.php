@@ -207,7 +207,7 @@ class FrontendController extends Controller
     {
         $this->validate($request, [
             'username' => 'required|alpha_num|unique:users|max:35',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email|regex:/^(?!-)(?!.*-$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/|unique:users',
             'password' => 'required|min:8|max:16|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/|confirmed'
         ], [
             'password.regex' => 'The password must be between 8 and 16 characters long, and include at least one uppercase letter, one lowercase letter, one digit, and one special character.',

@@ -19,7 +19,7 @@
                     <div class="content mb-30" data-aos="fade-down">
                         <span class="subtitle">{{$be->hero_section_title}}<img loading="lazy" src="{{asset('assets/front/img/icon-trophy.png')}}"
                                                                                alt="Icon"></span>
-                        <h1 class="title">{{$be->hero_section_text}} 
+                        <h1 class="title">{{$be->hero_section_text}}
                         </h1>
                         <p class="text">{{$be->hero_section_desc}}</p>
                         <div class="content-botom d-flex align-items-center">
@@ -311,7 +311,7 @@
                                                 </div>
                                                 <h5>{{ __('Whats Included') }}</h5>
                                                 <ul class="item-list list-unstyled p-0">
-    
+
                                                     <li>
                                                         <i class="fal fa-check"></i>
                                                         {{$package->course_categories_limit === 999999 ? __('Unlimited') : $package->course_categories_limit.' '}}{{$package->course_categories_limit ===1 ? __('Course Category'):__('Course Categories')}}
@@ -332,7 +332,7 @@
                                                         <i class="fal fa-check"></i>
                                                         {{$package->featured_course_limit === 999999 ? __('Unlimited') : $package->featured_course_limit.' '}}{{$package->featured_course_limit === 1 ? __('Featured Course'):__('Featured Courses')}}
                                                     </li>
-        
+
                                                     @foreach ($allPfeatures as $feature)
                                                         <li  class="{{is_array($pFeatures) && in_array($feature, $pFeatures) ? '' : 'disabled'}}">
                                                             <i class="{{is_array($pFeatures) && in_array($feature, $pFeatures) ? 'fal fa-check' : 'fal fa-times'}}"></i>

@@ -184,6 +184,7 @@ class TestimonialController extends Controller
 
             $be = BasicExtended::where('language_id', $langid)->firstOrFail();
             $filename = time() . '.' . $request->testimonial_bg_img->getClientOriginalExtension();
+            dd($filename);
             $request->file('testimonial_bg_img')->move(public_path('assets/front/img/'), $filename);
             @unlink(public_path('assets/front/img/' . $be->testimonial_bg_img));
             $be->testimonial_bg_img = $filename;

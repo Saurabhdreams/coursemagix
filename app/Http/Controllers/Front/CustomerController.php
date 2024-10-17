@@ -47,7 +47,7 @@ class CustomerController extends Controller
 
     public function login(Request $request, $domain)
     {
-     
+
         $user = getUser();
 
         $language = $this->getUserCurrentLanguage($user->id);
@@ -424,7 +424,7 @@ class CustomerController extends Controller
 
     public function redirectToDashboard($domain)
     {
-      
+
         $author = getUser();
 
         $queryResult['bgImg'] = $this->getUserBreadcrumb($author->id);
