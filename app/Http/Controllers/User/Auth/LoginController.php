@@ -38,7 +38,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-  
+
 
         if (Session::has('link')) {
             $redirectUrl = Session::get('link');
@@ -91,7 +91,7 @@ class LoginController extends Controller
             return redirect($redirectUrl);
         }
         // if unsuccessful, then redirect back to the login with the form data
-        return back()->with('err', __("Credentials Doesn\'t Match !"))->withInput();
+        return back()->with('err', __("These credentials do not match our records !"))->withInput();
     }
 
     public function logout()
