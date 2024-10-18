@@ -64,7 +64,7 @@
                 <div class="row align-items-center mt-3">
                     <div class="col-4 col-xs-12">
                         <div class="link">
-                            <a href="{{ route('user.forgot.password.form') }}">{{ __('Lost your password') }}?</a>
+                            <a href="{{ route('user.forgot.password.form') }}">{{ __('Forgot your password ') }}?</a>
                         </div>
                     </div>
 
