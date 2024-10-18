@@ -205,13 +205,43 @@ class FrontendController extends Controller
 
     public function checkout(Request $request)
     {
-        $this->validate($request, [
-            'username' => 'required|alpha_num|unique:users|max:35',
-            'email' => 'required|email|regex:/^(?!-)(?!.*-$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/|unique:users',
-            'password' => 'required|min:8|max:16|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/|confirmed'
-        ], [
-            'password.regex' => 'The password must be between 8 and 16 characters long, and include at least one uppercase letter, one lowercase letter, one digit, and one special character.',
+{
+    $validatedData = $this->validate($request, [
+        'username' => 'required|alpha_num|unique:users|max:35',
+        'email' => 'required|email|regex:/^(?!-)(?!.*-$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/|unique:users',
+        'password' => [
+            'required',
+            'min:8',
+            'max:16',
+            'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/'
+        ],
+        'password_confirmation' => 'required|min:8|same:password',
+    ], [
+        'password.required' => 'The password field is required.',
+        'password.min' => 'The password must be at least 8 characters long.',
+        'password_confirmation.min' => 'The confirm password must be at least 8 characters long.',
+        'password.max' => 'The password must not exceed 16 characters.',
+        'password.regex' => 'The password must include at least one uppercase letter, one lowercase letter, one digit, and one special character.',
+
+        'password_confirmation.required' => 'The confirm password field is required.',
+        'password_confirmation.same' => 'The password and confirm password do not match.',
+    ]);
+
+    if ($request->password && strlen($request->password) < 8) {
+        return back()->withErrors([
+            'password' => 'The password must be at least 8 characters long.'
         ]);
+    }
+
+    if ($request->password_confirmation && strlen($request->password_confirmation) < 8) {
+        return back()->withErrors([
+            'password_confirmation' => 'The confirm password must be at least 8 characters long.'
+        ]);
+    }
+
+}
+
+
         if (session()->has('lang')) {
             $currentLang = Language::where('code', session()->get('lang'))->first();
         } else {
@@ -793,7 +823,7 @@ class FrontendController extends Controller
     public function adminContactMessage(Request $request)
     {
         $rules = [
-            'name' => 'required|max:60',
+            'name' => 'required|string|max:25|regex:/^[a-zA-Z\s]+$/',
             'email' => 'required|email:rfc,dns',
             'subject' => 'required',
             'message' => 'required'
@@ -823,7 +853,6 @@ class FrontendController extends Controller
 
     public function contact(Request $request, $domain)
     {
-
         $user = getUser();
 
         $language =  $this->getUserCurrentLanguage($user->id);

@@ -4,10 +4,10 @@
 @section('meta-keywords', !empty($seo) ? $seo->contact_meta_keywords : '')
 
 @section('pagename')
-- {{__('Contact')}}
+- {{__('Contact Us')}}
 @endsection
 @section('breadcrumb-title')
-{{__('Contact')}}
+{{__('Contact Us')}}
 @endsection
 @section('breadcrumb-link')
     {{__('Contact')}}
@@ -88,8 +88,8 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group mb-30">
-                                            <input type="text" name="name" class="form-control" id="name" required
-                                                   data-error="Enter your name" placeholder="{{__('Full Name')}} *" pattern="[A-Za-z\s]+" 														title="Only letters and spaces are allowed" />
+                                            <input type="text" name="name" class="form-control" id="name"
+                                                   data-error="Enter your name" placeholder="{{__('Full Name')}} *" 														title="Only letters and spaces are allowed" />
                                             @if ($errors->has('name'))
                                                 <div class="help-block with-errors text-danger">{{$errors->first('name')}}</div>
                                             @endif
@@ -99,7 +99,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group mb-30">
-                                            <input type="email" name="email" class="form-control" id="email" required
+                                            <input type="email" name="email" class="form-control" id="email"
                                                    data-error="Enter your email" placeholder="{{ __('Email Address') }}*" />
                                             @if ($errors->has('email'))
                                                 <div class="help-block with-errors text-danger">{{$errors->first('email')}}</div>

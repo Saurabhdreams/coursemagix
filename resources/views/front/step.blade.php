@@ -73,7 +73,7 @@
                                <span onclick="togglePasswordVisibility('password-confirm', 'passwordConfirmToggleIcon');">
                                     <i class="fa fa-eye" id="passwordConfirmToggleIcon"></i>
                                 </span>
-                        @error('password')
+                        @error('password_confirmation')
                         <p class="text-danger mb-2 mt-2">{{ $message }}</p>
                         @enderror
                     </div>
