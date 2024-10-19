@@ -10,7 +10,7 @@
 {{__('Contact Us')}}
 @endsection
 @section('breadcrumb-link')
-    {{__('Contact')}}
+    {{__('Contact Us')}}
 @endsection
 
 @section('content')
@@ -109,7 +109,7 @@
 
                                     <div class="col-md-12">
                                         <div class="form-group mb-30">
-                                            <input type="subject" name="subject" class="form-control" id="subject" required data-error="Enter your subject" placeholder="{{ __('Subject') }}*" pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed"/>
+                                            <input type="subject" name="subject" class="form-control" id="subject" required data-error="Enter your subject" placeholder="{{ __('Subject') }}*" />
                                             @if ($errors->has('subject'))
                                                 <div class="help-block with-errors text-danger">{{$errors->first('subject')}}</div>
                                             @endif

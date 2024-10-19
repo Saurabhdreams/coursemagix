@@ -35,9 +35,9 @@
                         <a href="https://www.medium.com/@1XLUniverse/" class="mt-3" target="_blank">
                             <i class="fab fa-medium"></i>
                         </a>
-                        <a href="https://www.reddit.com/user/1XLUniverse/" class="mt-3" target="_blank">
+                        {{-- <a href="https://www.reddit.com/user/1XLUniverse/" class="mt-3" target="_blank">
                             <i class="fab fa-reddit"></i>
-                        </a>
+                        </a> --}}
                         <a href="https://www.quora.com/profile/1XLUniverse/" class="mt-3" target="_blank">
                             <i class="fab fa-quora"></i>
                         </a>
@@ -87,7 +87,7 @@
                             @foreach ($phones as $phone)
                                 <a href="tel:{{$phone}}">{{ $phone }}</a>
                                 @if (!$loop->last)
-                                   , 
+                                   ,
                                 @endif
                             @endforeach
                         </li> --}}
@@ -99,7 +99,7 @@
                             @foreach ($mails as $mail)
                                 <a href="mailto:{{$mail}}">{{ $mail }}</a>
                                 @if (!$loop->last)
-                                   , 
+                                   ,
                                 @endif
                             @endforeach
                         </li>

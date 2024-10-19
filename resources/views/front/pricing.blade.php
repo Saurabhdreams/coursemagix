@@ -1,17 +1,17 @@
 @extends('front.layout')
 
 @section('pagename')
-    - {{__('Pricing')}}
+    - {{__('Pricing Plans')}}
 @endsection
 
 @section('meta-description', !empty($seo) ? $seo->pricing_meta_description : '')
 @section('meta-keywords', !empty($seo) ? $seo->pricing_meta_keywords : '')
 
 @section('breadcrumb-title')
-    {{__('Pricing')}}
+    {{__('Pricing Plans')}}
 @endsection
 @section('breadcrumb-link')
-    {{__('Pricing')}}
+    {{__('Pricing Plans')}}
 @endsection
 
 @section('content')
@@ -68,7 +68,7 @@
                                                 </div>
                                                 <h5>{{ __('Whats Included') }}</h5>
                                                 <ul class="item-list list-unstyled p-0">
-    
+
                                                     <li>
                                                         <i class="fal fa-check"></i>
                                                         {{$package->course_categories_limit === 999999 ? __('Unlimited') : $package->course_categories_limit.' '}}{{$package->course_categories_limit ===1 ? __('Course Category'):__('Course Categories')}}
@@ -89,7 +89,7 @@
                                                         <i class="fal fa-check"></i>
                                                         {{$package->featured_course_limit === 999999 ? __('Unlimited') : $package->featured_course_limit.' '}}{{$package->featured_course_limit === 1 ? __('Featured Course'):__('Featured Courses')}}
                                                     </li>
-        
+
                                                     @foreach ($allPfeatures as $feature)
                                                         <li  class="{{is_array($pFeatures) && in_array($feature, $pFeatures) ? '' : 'disabled'}}">
                                                             <i class="{{is_array($pFeatures) && in_array($feature, $pFeatures) ? 'fal fa-check' : 'fal fa-times'}}"></i>

@@ -221,7 +221,7 @@ class FrontendController extends Controller
         'password.min' => 'The password must be at least 8 characters long.',
         'password_confirmation.min' => 'The confirm password must be at least 8 characters long.',
         'password.max' => 'The password must not exceed 16 characters.',
-        'password.regex' => 'The password must include at least one uppercase letter, one lowercase letter, one digit, and one special character.',
+        'password.regex' => 'Password must include an uppercase letter, lowercase letter, a number and a special character.',
 
         'password_confirmation.required' => 'The confirm password field is required.',
         'password_confirmation.same' => 'The password and confirm password do not match.',
